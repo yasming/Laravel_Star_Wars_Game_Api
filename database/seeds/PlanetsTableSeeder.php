@@ -15,10 +15,13 @@ class PlanetsTableSeeder extends Seeder
     {
 
         $page = 1;
+        $this->getFirstPlanet();
+        // api isnt returning the first planet
         $responseJson = $this->makeRequestToStarWarsApi($page);
         return $responseJson;
 
     }
+
     public function makeRequestToStarWarsApi($page)
     {
         $client = new Client();
@@ -40,8 +43,21 @@ class PlanetsTableSeeder extends Seeder
             return $this->apiResponse();
         }
     }
+
+    public function getFirstPlanet()
+    {
+        $client = new Client();
+        $response = $client->request('GET', ENV('API_STAR_WARS'). '1');
+        $responseJson = json_decode($response->getBody(), true);
+
+        $responseJson['residents'] = implode(',',$responseJson['residents']);
+        $responseJson['films'] = implode(',',$responseJson['films']);
+        $planet = Planet::create($responseJson);
+        return $planet;
+
+    }
     public function apiResponse()
     {
-        return response()->json(['msg' => 'The make were seed with Star Wars planets']);
+        return response()->json(['msg' => 'The planets table were seed with Star Wars planets']);
     }
 }

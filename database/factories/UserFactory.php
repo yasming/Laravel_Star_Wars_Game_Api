@@ -20,6 +20,6 @@ use Illuminate\Support\Str;
 $factory->define(User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
-        'code' =>Str::random(10),
+        'code' =>Str::random(40),
     ];
 });
