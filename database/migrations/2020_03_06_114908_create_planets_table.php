@@ -17,15 +17,15 @@ class CreatePlanetsTable extends Migration
 
             $table->id();
             $table->string('name');
-            $table->integer('rotations_period');
-            $table->integer('orbital_period');
-            $table->integer('diameter');
+            $table->string('rotation_period');
+            $table->string('orbital_period');
+            $table->string('diameter');
             $table->string('climate');
             $table->string('gravity');
             $table->string('terrain');
-            $table->integer('surface_water');
-            $table->bigInteger('population');
-            $table->string('residents');
+            $table->string('surface_water');
+            $table->string('population');
+            $table->longText('residents');
             $table->string('films');
             $table->string('created');
             $table->string('edited');

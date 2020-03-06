@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Planets extends Model
+class Planet extends Model
 {
     protected $fillable = [
         'name',
-        'rotations_period',
+        'rotation_period',
         'orbital_period',
         'diameter',
         'climate',
