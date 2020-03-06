@@ -13,4 +13,13 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    public function apiResponseSuccess($planet)
+    {
+        return response()->json(['message' => 'You visited the planet: '. $planet->name ]);
+    }
+
+    public function apiResponseError($planet)
+    {
+        return response()->json(['message' => 'Oops.. Have you ever visit this planet ! Choose another planet to visit .'], 422);
+    }
 }
