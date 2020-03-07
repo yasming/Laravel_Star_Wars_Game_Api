@@ -23,6 +23,6 @@ Route::group(['prefix' => 'planet'], function () {
     Route::post('/visit/{planet}', 'ApiController@visitPlanet');
     Route::post('/search', 'ApiController@searchPlanet');
     Route::get('/visitors', 'ApiController@showPlanetsVistors');
-    Route::get('/visitors/ranking', 'ApiController@showPlanetsVistors');
+    Route::get('/visitors/ranking', 'ApiController@showVisitorsRanking');
 
 });
