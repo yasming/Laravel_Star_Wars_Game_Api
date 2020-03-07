@@ -8,16 +8,15 @@ use App\Http\Resources\PlanetCollection;
 use App\Http\Resources\UserCollection;
 use App\Models\Planet;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class ApiController extends Controller
 {
-    public function visitPlanet(Planet $planet, VisitPlanetRequest $request)
+    public function visitPlanet(Planet $planet)
     {
-        $attachedPlanetToUsers = $planet->users()->sync($request->user_id);
+        $attachedPlanetToUsers = $planet->users()->sync($this->getAuthenticatedUser()->id);
         if(empty($attachedPlanetToUsers['attached']))
         {
-            return $this->apiResponseError($planet);
+            return $this->apiResponseError();
 
         }else return $this->apiResponseSuccess($planet);
 
