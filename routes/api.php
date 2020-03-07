@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/login', 'LoginController@authenticate');
 
-Route::group(['middleware' => 'jwt.auth', 'prefix' => 'planet'], function () {
+Route::group(['middleware' => 'jwt.auth', 'prefix' => 'planets'], function () {
 
     Route::post('/visit/{planet}', 'ApiController@visitPlanet');
     Route::post('/search', 'ApiController@searchPlanet');
