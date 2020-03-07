@@ -23,9 +23,11 @@ class Planet extends Model
         'url',
 
     ];
+    protected $hidden = ['pivot'];
 
     public function users()
     {
         return $this->belongsToMany(User::class);
     }
+
 }
