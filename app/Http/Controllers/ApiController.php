@@ -45,8 +45,8 @@ class ApiController extends Controller
 
     public function showVisitorsRanking()
     {
-        $rankingOfUsers= User::withCount('planets as number_of_user_visits_to_planets')
-                              ->orderByRaw('number_of_user_visits_to_planets desc')
+        $rankingOfUsers= User::withCount('planets as number_of_planets_visited')
+                              ->orderByRaw('number_of_planets_visited desc')
                               ->get();
 
         return new UserCollection($rankingOfUsers);
