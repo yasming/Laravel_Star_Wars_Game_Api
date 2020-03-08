@@ -120,7 +120,7 @@ Response:
 ```
 
 - Pay Attention !! 
-- Before access this follow routes, you need to put the token that were recivied in authentication in Bearer Token !
+- Before access this follow routes, you need to put the token that were recivied in authentication in Bearer Token on postman !
 
 ```
 POST localhost:8000/api/planets/visit/4
