@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/login', 'LoginController@authenticate');
+Route::post('/register', 'RegisterController@store');
 
 Route::group(['middleware' => 'jwt.auth', 'prefix' => 'planets'], function () {
 

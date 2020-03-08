@@ -22,6 +22,11 @@ class Controller extends BaseController
         return response()->json(['message' => 'Oops.. Have you ever visit this planet! Choose another planet to visit .'], 422);
     }
 
+    public function apiResponseRegisterUserSuccess()
+    {
+        return response()->json(['message' => 'User registered with success']);
+    }
+
     public function getAuthenticatedUser()
     {
     	try {

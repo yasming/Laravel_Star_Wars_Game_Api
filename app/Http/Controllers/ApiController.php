@@ -13,7 +13,7 @@ class ApiController extends Controller
 {
     public function visitPlanet(Planet $planet)
     {
-        $attachedPlanetToUsers = $planet->users()->sync($this->getAuthenticatedUser()->id);
+        $attachedPlanetToUsers = $planet->users()->syncWithoutDetaching($this->getAuthenticatedUser()->id);
         if(empty($attachedPlanetToUsers['attached']))
         {
             return $this->apiResponseError();
