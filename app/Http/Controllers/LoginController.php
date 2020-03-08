@@ -24,6 +24,6 @@ class LoginController extends Controller
         }
         $user = auth()->user();
         // all good so return the token
-        return response()->json(compact('token', 'user'));
+        return response()->json(['data' => compact('token', 'user')]);
     }
 }
