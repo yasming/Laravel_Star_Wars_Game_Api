@@ -16,7 +16,8 @@ class ApiController extends Controller
         $attachedPlanetToUsers = $planet->users()->syncWithoutDetaching($this->getAuthenticatedUser()->id);
         if(empty($attachedPlanetToUsers['attached']))
         {
-            return $this->apiResponseError();
+            $message = 'Oops.. Have you ever visit this planet! Choose another planet to visit .';
+            return $this->apiResponseError($message);
 
         }else return $this->apiResponseSuccess($planet);
 
@@ -25,7 +26,12 @@ class ApiController extends Controller
     public function searchPlanet(SearchPlanetRequest $request)
     {
         $planet = Planet::where('name', ucfirst($request->name))->get();
-        return new PlanetCollection($planet);
+
+        if($planet->isEmpty())
+        {
+            $message = "Sorry.. this planet couldn't be found, please, type a right planet's name .";
+            return $this->apiResponseError($message);
+        }else return new PlanetCollection($planet);
 
     }
 

@@ -17,9 +17,9 @@ class Controller extends BaseController
         return response()->json(['message' => 'You visited the planet: '. $planet->name ]);
     }
 
-    public function apiResponseError()
+    public function apiResponseError($message)
     {
-        return response()->json(['message' => 'Oops.. Have you ever visit this planet! Choose another planet to visit .'], 422);
+        return response()->json(['message' => $message], 422);
     }
 
     public function apiResponseRegisterUserSuccess()
