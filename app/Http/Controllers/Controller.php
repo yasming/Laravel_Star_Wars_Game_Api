@@ -14,17 +14,17 @@ class Controller extends BaseController
 
     public function apiResponseSuccess($planet)
     {
-        return response()->json(['message' => 'You visited the planet: '. $planet->name ]);
+        return response()->json(['data' => [ 'message' => 'You visited the planet: '. $planet->name ]]);
     }
 
     public function apiResponseError($message)
     {
-        return response()->json(['message' => $message], 422);
+        return response()->json(['data' => ['message' => $message]], 422);
     }
 
     public function apiResponseRegisterUserSuccess()
     {
-        return response()->json(['message' => 'User registered with success']);
+        return response()->json(['data' => ['message' => 'User registered with success']]);
     }
 
     public function getAuthenticatedUser()

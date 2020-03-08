@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/login', 'LoginController@authenticate');
 Route::post('/register', 'RegisterController@store');
+Route::post('/login', 'LoginController@authenticate');
 
 Route::group(['middleware' => 'jwt.auth', 'prefix' => 'planets'], function () {
 
