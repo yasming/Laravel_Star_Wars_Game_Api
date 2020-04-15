@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Planet extends Model
 {
+    const messagePlanetNotVisited = "Oops.. Have you ever visit this planet! Choose another planet to visit .";
+    const messagePlanetNotFound = "Sorry.. this planet couldn't be found, please, type a right planet's name .";
+
     protected $fillable = [
         'name',
         'rotation_period',
