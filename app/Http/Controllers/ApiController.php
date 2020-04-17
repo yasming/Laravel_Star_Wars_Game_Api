@@ -16,7 +16,7 @@ class ApiController extends Controller
         $attachedPlanetToUsers = $planet->users()->syncWithoutDetaching($this->getAuthenticatedUser()->id);
         if(empty($attachedPlanetToUsers['attached']))
         {
-            return $this->apiResponseError(Planet::messagePlanetNotVisited);
+            return $this->apiResponseError(Planet::MESSAGE_PLANET_NOT_VISITED);
 
         }else return $this->apiResponseSuccess($planet);
 
@@ -28,7 +28,7 @@ class ApiController extends Controller
 
         if($planet->isEmpty())
         {
-            return $this->apiResponseError(Planet::messagePlanetNotFound);
+            return $this->apiResponseError(Planet::MESSAGE_PLANET_NOT_FOUND);
         }else return new PlanetCollection($planet);
 
     }
